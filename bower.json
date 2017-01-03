@@ -1,0 +1,20 @@
+{
+  "name": "sutton_center",
+  "description": "",
+  "main": "",
+  "authors": [
+    "brentli1 <brent.jlinville@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/brentli1/sutton",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "susy": "^2.2.12"
+  }
+}

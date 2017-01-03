@@ -1,0 +1,88 @@
+.eggs {
+  display: flex;
+  flex: 1;
+
+  .egg-list {
+    @include rem("padding", 10px);
+    flex: 0 0 250px;
+
+    &__search-wrapper {
+      position: relative;
+
+      &:after {
+        content: $font-icon-search;
+        font-family: $font-family-icon;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+      }
+    }
+
+    &__search {
+      @include rem("margin-bottom", 30px);
+      @include rem("padding", 5px);
+      @include rem("font-size", 14px);
+      border-bottom: 2px solid $color-primary;
+      width: 100%;
+    }
+
+    &__add-new {
+      @include rem("padding", 8px 0);
+      @include rem("font-size", 14px);
+      @include rem("margin-bottom", 15px);
+      border: 1px solid $color-primary;
+      color: $color-primary;
+      font-weight: $font-weight-light;
+      line-height: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: color 500ms;
+
+      &:before {
+        @include rem("margin-right", 10px);
+        @include rem("font-size", 16px);
+        content: $font-icon-add;
+        font-family: $font-family-icon;
+        position: relative;
+        top: 2px;
+      }
+
+      &:hover {
+        color: lighten($color-primary, 10);
+        cursor: pointer;
+      }
+    }
+
+    &__items {
+      font-weight: $font-weight-light;
+    }
+
+    &__item-header {
+      @include rem("padding", 8px 5px);
+      background: $color-secondary;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    &__item {
+      @include rem("padding", 4px 0);
+      background: lighten($color-secondary, 45);
+      text-align: center;
+      transition: background 500ms;
+
+      &:nth-child(2n+1) {
+        background: lighten($color-secondary, 35);
+      }
+
+      &:hover {
+        background: lighten($color-secondary, 15);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .egg-details {
+    border-left: 4px solid $color-primary;
+    flex: 1;
+  }
+}

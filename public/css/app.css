@@ -1,0 +1,579 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700");
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?on9dc7");
+  src: url("../fonts/icomoon.eot?on9dc7#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?on9dc7") format("truetype"), url("../fonts/icomoon.woff?on9dc7") format("woff"), url("../fonts/icomoon.svg?on9dc7#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: #000000;
+  -webkit-transition: color 500ms;
+  transition: color 500ms;
+}
+
+/* ----------------------------------------------------------------------------------------------------
+
+  Super Form Reset
+
+  A couple of things to watch out for:
+
+  - IE8: If a text input doesn't have padding on all sides or none the text won't be centered.
+  - The default border sizes on text inputs in all UAs seem to be slightly different. You're better off using custom borders.
+  - You NEED to set the font-size and family on all form elements
+  - Search inputs need to have their appearance reset and the box-sizing set to content-box to match other UAs
+  - You can style the upload button in webkit using ::-webkit-file-upload-button
+  - ::-webkit-file-upload-button selectors can't be used in the same selector as normal ones. FF and IE freak out.
+  - IE: You don't need to fake inline-block with labels and form controls in IE. They function as inline-block.
+  - By turning off ::-webkit-search-decoration, it removes the extra whitespace on the left on search inputs
+
+  ----------------------------------------------------------------------------------------------------*/
+input,
+select,
+button,
+textarea {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+/* Box Sizing Reset
+  -----------------------------------------------*/
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea {
+  box-sizing: border-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=button],
+input[type=submit] {
+  box-sizing: border-box;
+}
+
+/* File Uploads
+  -----------------------------------------------*/
+/* Buttons
+  -----------------------------------------------*/
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Textarea
+  -----------------------------------------------*/
+textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto;
+}
+
+.main-body {
+  height: calc(100vh - 50px);
+}
+
+.app-wrapper {
+  display: -webkit-box;
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.app-body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1;
+  overflow: auto;
+}
+
+.landing {
+  width: 100%;
+}
+
+.landing:before, .landing:after {
+  content: ' ';
+  display: table;
+}
+
+.landing:after {
+  clear: both;
+}
+
+.landing__logo-wrapper {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 50px 15px;
+  padding:  50px 15px;
+  background: #131e30;
+  text-align: center;
+}
+
+.landing__form-wrapper {
+  padding: 30px 15px;
+  padding:  30px 15px;
+  clear: both;
+  margin: 0 auto;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.landing__form-title {
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.landing__label {
+  display: block;
+  font-weight: 300;
+}
+
+.landing__input {
+  padding: 10px;
+  padding: 0.625rem;
+  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid #131e30;
+  width: 100%;
+}
+
+.landing__button {
+  padding: 10px 20px;
+  padding:  10px 20px;
+  margin-top: 20px;
+  margin-top: 1.25rem;
+  width: 49.8327759197%;
+  float: left;
+  margin-right: 0.3344481605%;
+  font-size: 16px;
+  font-size: 1rem;
+  background: #9a812f;
+  color: #FFF;
+  display: inline-block;
+  text-align: center;
+  -webkit-transition: background 500ms;
+  transition: background 500ms;
+}
+
+.landing__button:last-child {
+  width: 49.8327759197%;
+  float: right;
+  margin-right: 0;
+  background: #736023;
+}
+
+.landing__button:last-child:hover {
+  background: #5f501d;
+}
+
+.landing__button:hover {
+  background: #867129;
+  cursor: pointer;
+}
+
+.top-nav {
+  background: #131e30;
+  height: 50px;
+}
+
+.top-nav__logo {
+  padding: 5px 20px 5px 0;
+  padding:  5px 20px 5px 0;
+  float: right;
+  max-height: 100%;
+}
+
+.top-nav__welcome {
+  padding: 0 20px;
+  padding:  0 20px;
+  font-size: 14px;
+  font-size: 0.875rem;
+  background: #9a812f;
+  color: #FFF;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 125px;
+}
+
+.top-nav__items {
+  float: right;
+  height: 50px;
+}
+
+.top-nav__item {
+  margin-right: 20px;
+  margin-right: 1.25rem;
+  display: inline;
+  line-height: 50px;
+}
+
+.top-nav__link {
+  color: #FFFFFF;
+}
+
+.top-nav__link:hover {
+  color: #d9d9d9;
+}
+
+.main-nav {
+  background: #9a812f;
+  height: 100%;
+  overflow: auto;
+  width: 125px;
+}
+
+.main-nav__avatar {
+  padding: 15px 0;
+  padding:  15px 0;
+  background: #c9ac4d;
+  display: block;
+}
+
+.main-nav__item {
+  padding: 15px 5px;
+  padding:  15px 5px;
+  background: #867129;
+  border-bottom: 1px solid #c9ac4d;
+  color: #FFFFFF;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: background 500ms;
+  transition: background 500ms;
+}
+
+.main-nav__item:hover {
+  background: #736023;
+  cursor: pointer;
+}
+
+.main-nav__icon-egg:before {
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
+  content: "";
+  display: block;
+  font-family: "icomoon";
+}
+
+.modal__overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+}
+
+.modal__container {
+  background: #FFF;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  position: absolute;
+  margin: 0 auto;
+  max-width: 800px;
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+}
+
+.modal__close {
+  margin: 10px 0;
+  margin:  10px 0;
+  padding: 0 30px;
+  padding:  0 30px;
+  border: 2px solid #000;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+}
+
+.modal__header {
+  padding: 20px;
+  padding: 1.25rem;
+  background: #9a812f;
+  position: relative;
+  text-align: center;
+}
+
+.modal__body {
+  padding: 15px;
+  padding: 0.9375rem;
+  overflow: auto;
+}
+
+.modal .modal-form {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.modal .modal-form__input {
+  padding: 10px;
+  padding: 0.625rem;
+  margin-bottom: 25px;
+  margin-bottom: 1.5625rem;
+  border: 1px solid #D3D3D3;
+  display: block;
+  width: 100%;
+}
+
+.modal .modal-form__label {
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
+  display: block;
+  text-align: left;
+}
+
+.modal .modal-form__submit {
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
+  padding: 10px 35px;
+  padding:  10px 35px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  background: #294067;
+  color: #FFFFFF;
+  text-align: center;
+  -webkit-transition: background 500ms;
+  transition: background 500ms;
+}
+
+.modal .modal-form__submit:hover {
+  background: #37578b;
+  cursor: pointer;
+}
+
+.modal .modal-form__error {
+  color: red;
+  position: relative;
+  top: -20px;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-enter-active {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.modal-leave-active {
+  opacity: 0;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.modal-enter .modal__container {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.modal-leave-active .modal__container {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+}
+
+.eggs {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.eggs .egg-list {
+  padding: 10px;
+  padding: 0.625rem;
+  -webkit-box-flex: 0;
+  flex: 0 0 250px;
+}
+
+.eggs .egg-list__search-wrapper {
+  position: relative;
+}
+
+.eggs .egg-list__search-wrapper:after {
+  content: "";
+  font-family: "icomoon";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.eggs .egg-list__search {
+  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
+  padding: 5px;
+  padding: 0.3125rem;
+  font-size: 14px;
+  font-size: 0.875rem;
+  border-bottom: 2px solid #131e30;
+  width: 100%;
+}
+
+.eggs .egg-list__add-new {
+  padding: 8px 0;
+  padding:  8px 0;
+  font-size: 14px;
+  font-size: 0.875rem;
+  margin-bottom: 15px;
+  margin-bottom: 0.9375rem;
+  border: 1px solid #131e30;
+  color: #131e30;
+  font-weight: 300;
+  line-height: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: color 500ms;
+  transition: color 500ms;
+}
+
+.eggs .egg-list__add-new:before {
+  margin-right: 10px;
+  margin-right: 0.625rem;
+  font-size: 16px;
+  font-size: 1rem;
+  content: "";
+  font-family: "icomoon";
+  position: relative;
+  top: 2px;
+}
+
+.eggs .egg-list__add-new:hover {
+  color: #213555;
+  cursor: pointer;
+}
+
+.eggs .egg-list__items {
+  font-weight: 300;
+}
+
+.eggs .egg-list__item-header {
+  padding: 8px 5px;
+  padding:  8px 5px;
+  background: #9a812f;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.eggs .egg-list__item {
+  padding: 4px 0;
+  padding:  4px 0;
+  background: #ece3c2;
+  text-align: center;
+  -webkit-transition: background 500ms;
+  transition: background 500ms;
+}
+
+.eggs .egg-list__item:nth-child(2n+1) {
+  background: #e0d09b;
+}
+
+.eggs .egg-list__item:hover {
+  background: #c9ac4d;
+  cursor: pointer;
+}
+
+.eggs .egg-details {
+  border-left: 4px solid #131e30;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+/*# sourceMappingURL=app.css.map */

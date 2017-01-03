@@ -1,0 +1,15 @@
+.main-body {
+  height: calc(100vh - 50px);
+}
+
+.app-wrapper {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+}

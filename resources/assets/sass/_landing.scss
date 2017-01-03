@@ -1,0 +1,66 @@
+.landing {
+  @include clearfix;
+  width: 100%;
+
+  &__logo-wrapper {
+    @include span(12 of 12);
+    @include rem("padding", 50px 15px);
+    background: $color-primary;
+    text-align: center;
+  }
+
+  &__form-wrapper {
+    @include rem("padding", 30px 15px);
+    clear: both;
+    margin: 0 auto;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  &__form-title {
+    @include rem("font-size", 24px);
+    @include rem("margin-bottom", 20px);
+    font-weight: $font-weight-light;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__label {
+    display: block;
+    font-weight: $font-weight-light;
+  }
+
+  &__input {
+    @include rem("padding", 10px);
+    @include rem("font-size", 16px);
+    @include rem("margin-bottom", 20px);
+    border-bottom: 2px solid $color-primary;
+    width: 100%;
+  }
+
+  &__button {
+    @include rem("padding", 10px 20px);
+    @include rem("margin-top", 20px);
+    @include span(6 of 12);
+    @include rem("font-size", 16px);
+    background: $color-secondary;
+    color: #FFF;
+    display: inline-block;
+    text-align: center;
+    transition: background 500ms;
+
+    &:last-child {
+      @include span(6 omega of 12);
+      background: darken($color-secondary, 10);
+
+      &:hover {
+        background: darken($color-secondary, 15);
+      }
+    }
+
+    &:hover {
+      background: darken($color-secondary, 5);
+      cursor: pointer;
+    }
+  }
+}
