@@ -44,7 +44,7 @@
       },
 
       createEgg: function() {
-        this.$http.post(window.site_base_url + '/api/eggs/create', this.egg).then((data) => {
+        this.$http.post(window.site_base_url + 'api/eggs/create', this.egg).then((data) => {
           this.egg.id = data.body.last_inserted_id;
           window.eventBus.$emit('push-new-egg', this.egg);
           window.eventBus.$emit('close-modal');

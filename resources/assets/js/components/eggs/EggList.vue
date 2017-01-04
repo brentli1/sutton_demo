@@ -28,7 +28,7 @@
       },
 
       fetchEggs: function() {
-        this.$http.get(window.site_base_url + '/api/eggs').then((response) => {
+        this.$http.get(window.site_base_url + 'api/eggs').then((response) => {
           this.eggs = response.body;
         });
       },

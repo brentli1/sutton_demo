@@ -19,7 +19,7 @@
 
     methods: {
       fetchUserData: function() {
-        this.$http.get(window.site_base_url + '/api/user').then((response) => {
+        this.$http.get(window.site_base_url + 'api/user').then((response) => {
           this.user = response.body;
           if(window.site_base_url == '/') {
             this.user_avatar = this.user.avatar_path;

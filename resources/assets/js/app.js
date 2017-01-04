@@ -18,7 +18,8 @@ import _404 from './components/errors/404.vue';
 
 $(() => {
   // Site Base URL
-  window.site_base_url = '/project_examples/sutton'
+  // window.site_base_url = '/project_examples/sutton/';
+  window.site_base_url = '/';
 
   Vue.use(Router);
   Vue.use(Resource);
