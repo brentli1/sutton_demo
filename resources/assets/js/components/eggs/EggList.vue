@@ -6,7 +6,7 @@
     <div class="egg-list__add-new" @click.prevent="openEggModal()">Add New Egg</div>
     <ul class="egg-list__items">
       <li class="egg-list__item-header">Egg ID</li>
-      <li v-for="egg in filterBy(eggs, searchText)" class="egg-list__item">
+      <li v-for="egg in filterBy(eggs, searchText)" @click.prevent="showEggDetails(egg.id, egg.egg_id)" class="egg-list__item">
         <div>{{egg.egg_id}}</div>
       </li>
     </ul>
@@ -35,6 +35,10 @@
 
       openEggModal: function() {
         window.eventBus.$emit('open-egg-modal', 'Add Egg', 'create');
+      },
+
+      showEggDetails: function(id, egg_id) {
+        window.eventBus.$emit('show-egg-details', id, egg_id);
       },
 
       pushNewEgg: function(egg) {

@@ -25,6 +25,7 @@ Route::get('app', 'HomeController@index');
 Route::get('api/user', 'HomeController@getCurrentUser')->middleware('auth');
 Route::get('api/eggs', 'EggController@getEggs')->middleware('auth');
 Route::post('api/eggs/create', 'EggController@createEgg')->middleware('auth');
+Route::get('api/egg/{id}', 'EggDetailsController@getEggDetails')->middleware('auth');
 
 # Vue
 // Route::any('{all}', function () {

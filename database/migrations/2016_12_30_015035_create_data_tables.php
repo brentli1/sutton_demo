@@ -23,7 +23,8 @@ class CreateDataTables extends Migration
 
       Schema::create('egg_data', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('egg_id')->references('egg_id')->on('eggs')->onDelete('cascade');
+        $table->integer('egg_data_id')->unsigned();
+        $table->foreign('egg_data_id')->references('id')->on('eggs')->onDelete('cascade');
         $table->float('length');
         $table->float('width');
         $table->float('weight');

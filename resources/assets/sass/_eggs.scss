@@ -28,30 +28,7 @@
     }
 
     &__add-new {
-      @include rem("padding", 8px 0);
-      @include rem("font-size", 14px);
-      @include rem("margin-bottom", 15px);
-      border: 1px solid $color-primary;
-      color: $color-primary;
-      font-weight: $font-weight-light;
-      line-height: 14px;
-      text-align: center;
-      text-transform: uppercase;
-      transition: color 500ms;
-
-      &:before {
-        @include rem("margin-right", 10px);
-        @include rem("font-size", 16px);
-        content: $font-icon-add;
-        font-family: $font-family-icon;
-        position: relative;
-        top: 2px;
-      }
-
-      &:hover {
-        color: lighten($color-primary, 10);
-        cursor: pointer;
-      }
+      @extend %add-button;
     }
 
     &__items {
@@ -59,31 +36,66 @@
     }
 
     &__item-header {
-      @include rem("padding", 8px 5px);
-      background: $color-secondary;
-      color: #FFFFFF;
-      text-align: center;
+      @extend %table-header;
     }
 
     &__item {
-      @include rem("padding", 4px 0);
-      background: lighten($color-secondary, 45);
-      text-align: center;
-      transition: background 500ms;
-
-      &:nth-child(2n+1) {
-        background: lighten($color-secondary, 35);
-      }
-
-      &:hover {
-        background: lighten($color-secondary, 15);
-        cursor: pointer;
-      }
+      @extend %table-rows;
     }
   }
 
   .egg-details {
+    @include rem("padding", 10px);
     border-left: 4px solid $color-primary;
     flex: 1;
+    overflow: auto;
+
+    &__header {
+      align-items: flex-end;
+      display: flex;
+    }
+
+    &__title {
+      @include rem("font-size", 24px);
+      color: $color-primary;
+      font-weight: $font-weight-light;
+    }
+
+    &__add-new {
+      @extend %add-button;
+      @include rem("padding", 3px 15px);
+      @include rem("margin-left", 15px);
+      margin-bottom: 0;
+    }
+
+    &__item-header {
+      @extend %table-header;
+      overflow: hidden;
+    }
+
+    &__item {
+      @extend %table-rows;
+      overflow: hidden;
+    }
+
+    &__item-span {
+      float: left;
+
+      &:nth-child(1) {
+        width: 25%;
+      }
+
+      &:nth-child(2) {
+        width: 25%;
+      }
+
+      &:nth-child(3) {
+        width: 25%;
+      }
+
+      &:nth-child(4) {
+        width: 25%;
+      }
+    }
   }
 }

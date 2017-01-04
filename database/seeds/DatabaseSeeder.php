@@ -30,5 +30,10 @@ class UsersTableSeeder extends Seeder
         'password' => bcrypt('password'),
         'role' => 'admin'
       ]);
+
+      DB::table('images')->insert([
+        'path' => '/images/users/eric.jpeg',
+        'user_id' => 1
+      ]);
     }
 }
