@@ -1,15 +1,18 @@
 <template>
   <section class="egg-list">
-    <div class="egg-list__search-wrapper">
-      <input v-model="searchText" type="text" class="egg-list__search" placeholder="Search">
+    <pulse-loader v-if="loading" :color="color" :size="size"></pulse-loader>
+    <div v-else class="egg-list__container">
+      <div class="egg-list__search-wrapper">
+        <input v-model="searchText" type="text" class="egg-list__search" placeholder="Search">
+      </div>
+      <div class="egg-list__add-new" @click.prevent="openEggModal()">Add New Egg</div>
+      <ul class="egg-list__items">
+        <li class="egg-list__item-header">Egg ID</li>
+        <li v-for="egg in filterBy(eggs, searchText)" @click.prevent="showEggDetails(egg.id, egg.egg_id)" class="egg-list__item">
+          <div>{{egg.egg_id}}</div>
+        </li>
+      </ul>
     </div>
-    <div class="egg-list__add-new" @click.prevent="openEggModal()">Add New Egg</div>
-    <ul class="egg-list__items">
-      <li class="egg-list__item-header">Egg ID</li>
-      <li v-for="egg in filterBy(eggs, searchText)" @click.prevent="showEggDetails(egg.id, egg.egg_id)" class="egg-list__item">
-        <div>{{egg.egg_id}}</div>
-      </li>
-    </ul>
   </section>
 </template>
 
@@ -18,7 +21,8 @@
     data() {
       return {
         eggs: [],
-        searchText: ''
+        searchText: '',
+        loading: true
       }
     },
 
@@ -28,8 +32,10 @@
       },
 
       fetchEggs: function() {
+        this.loading = true;
         this.$http.get(window.site_base_url + 'api/eggs').then((response) => {
           this.eggs = response.body;
+          this.loading = false;
         });
       },
 

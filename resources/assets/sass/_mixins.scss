@@ -14,6 +14,29 @@
   @return $n / ($n * 0 + 1);
 }
 
+@mixin table-rows($color, $basevalue) {
+  @include rem("padding", 4px 0);
+  background: lighten($color, $basevalue);
+  text-align: center;
+  transition: background 500ms;
+
+  &:nth-child(2n+1) {
+    background: lighten($color, $basevalue - 10);
+  }
+
+  &:hover {
+    background: lighten($color, $basevalue - 30);
+    cursor: pointer;
+  }
+}
+
+@mixin table-header($color) {
+  @include rem("padding", 8px 5px);
+  background: $color;
+  color: #FFFFFF;
+  text-align: center;
+}
+
 @mixin rem($property, $px-values) {
   // Convert the baseline into rems
   $baseline-rem: $font-base-px / 1rem;

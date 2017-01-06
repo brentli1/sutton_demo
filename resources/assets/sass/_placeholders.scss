@@ -24,26 +24,3 @@
     cursor: pointer;
   }  
 }
-
-%table-header {
-  @include rem("padding", 8px 5px);
-  background: $color-secondary;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-%table-rows {
-  @include rem("padding", 4px 0);
-    background: lighten($color-secondary, 45);
-    text-align: center;
-    transition: background 500ms;
-
-    &:nth-child(2n+1) {
-      background: lighten($color-secondary, 35);
-    }
-
-    &:hover {
-      background: lighten($color-secondary, 15);
-      cursor: pointer;
-    }
-}

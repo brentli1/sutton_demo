@@ -9,6 +9,7 @@
           </div>
           <div class="modal__body">
             <add-edit-egg v-show="showEggModal"></add-edit-egg>
+            <add-edit-egg-data v-show="showEggDataModal"></add-edit-egg-data>
           </div>
       </div>
     </section>
@@ -21,18 +22,22 @@
       return {
         showModal: false,
         modalTitle: '',
-        showEggModal: false
+        showEggModal: false,
+        showEggDataModal: false
       }
     },
 
     methods: {
       setListeners: function() {
         window.eventBus.$on('open-egg-modal', this.showEggModalAction);
+        window.eventBus.$on('open-egg-data-modal', this.showEggDataModalAction);
         window.eventBus.$on('close-modal', this.closeModal);
       },
 
       closeModal: function() {
         this.showModal = false;
+        this.showEggModal = false;
+        this.showEggDataModal = false;
         window.eventBus.$emit('reset-modal');
       },
 
@@ -41,6 +46,13 @@
         this.showEggModal = true;
         this.modalTitle = title;
         window.eventBus.$emit('set-egg-modal', action);
+      },
+
+      showEggDataModalAction: function(title, action, egg_data_id) {
+        this.showModal = true;
+        this.showEggDataModal = true;
+        this.modalTitle = title;
+        window.eventBus.$emit('set-egg-data-modal', action, egg_data_id);
       }
     },
 

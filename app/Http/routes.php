@@ -21,11 +21,14 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('app', 'HomeController@index');
-Route::get('api/user', 'HomeController@getCurrentUser')->middleware('auth');
-Route::get('api/eggs', 'EggController@getEggs')->middleware('auth');
-Route::post('api/eggs/create', 'EggController@createEgg')->middleware('auth');
-Route::get('api/egg/{id}', 'EggDetailsController@getEggDetails')->middleware('auth');
+Route::group(['before' => 'auth'], function () {
+  Route::get('app', 'HomeController@index');
+  Route::get('api/user', 'HomeController@getCurrentUser')->middleware('auth');
+  Route::get('api/eggs', 'EggController@getEggs')->middleware('auth');
+  Route::post('api/eggs/create', 'EggController@createEgg')->middleware('auth');
+  Route::post('api/egg-data/create', 'EggDetailsController@createEggData')->middleware('auth');
+  Route::get('api/egg/{id}', 'EggDetailsController@getEggDetails')->middleware('auth');
+});
 
 # Vue
 // Route::any('{all}', function () {

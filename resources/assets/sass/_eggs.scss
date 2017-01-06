@@ -36,11 +36,11 @@
     }
 
     &__item-header {
-      @extend %table-header;
+      @include table-header($color-secondary);
     }
 
     &__item {
-      @extend %table-rows;
+      @include table-rows($color-secondary, 45);
     }
   }
 
@@ -48,9 +48,11 @@
     @include rem("padding", 10px);
     border-left: 4px solid $color-primary;
     flex: 1;
+    max-width: 1000px;
     overflow: auto;
 
     &__header {
+      @include rem("margin-bottom", 10px);
       align-items: flex-end;
       display: flex;
     }
@@ -68,13 +70,18 @@
       margin-bottom: 0;
     }
 
+    &__chart-wrapper {
+      @include rem("margin-bottom", 10px);
+      max-height: 350px;
+    }
+
     &__item-header {
-      @extend %table-header;
+      @include table-header($color-primary);
       overflow: hidden;
     }
 
     &__item {
-      @extend %table-rows;
+      @include table-rows($color-primary, 75);
       overflow: hidden;
     }
 

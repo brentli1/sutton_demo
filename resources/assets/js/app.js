@@ -1,15 +1,17 @@
 import $ from 'jquery';
+import Chart from 'chart.js';
 import Vue from 'vue';
 import Router from 'vue-router';
 import Resource from 'vue-resource';
 import Vue2Filters from 'vue2-filters';
-import Vuex from 'vuex';
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 // Components
 import BaseView from './components/BaseView.vue';
 import MainNav from './components/MainNav.vue';
 import Modal from './components/modals/Modal.vue';
 import AddEditEgg from './components/modals/AddEditEgg';
+import AddEditEggData from './components/modals/AddEditEggData';
 import Eggs from './components/eggs/Index.vue';
 import Chicks from './components/chicks/Index.vue';
 import EggList from './components/eggs/EggList.vue';
@@ -24,7 +26,6 @@ $(() => {
   Vue.use(Router);
   Vue.use(Resource);
   Vue.use(Vue2Filters);
-  Vue.use(Vuex);
   Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('content');
 
   // Initialize the router
@@ -36,25 +37,18 @@ $(() => {
     mode: 'history'
   });
 
-  // const store = new Vuex.Store({
-  //   state: {
-  //     eggs: []
-  //   },
-  //   mutations: {
-
-  //   }
-  // });
-
   // Initialize the global event bus
   window.eventBus = new Vue();
 
   Vue.component('main-nav', MainNav);
   Vue.component('modal', Modal);
   Vue.component('add-edit-egg', AddEditEgg);
+  Vue.component('add-edit-egg-data', AddEditEggData);
   Vue.component('eggs', Eggs);
   Vue.component('egg-list', EggList);
   Vue.component('egg-details', EggDetails);
   Vue.component('chicks', Chicks);
+  Vue.component('pulse-loader', PulseLoader);
 
   // Instantiate the Application
   new Vue({

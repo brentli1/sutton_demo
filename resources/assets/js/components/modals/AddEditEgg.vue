@@ -1,4 +1,5 @@
 <template>
+  <div class="add-edit-egg">
     <form class="modal-form" @submit.prevent="action == 'edit' ? editEgg() : createEgg()">
       <label class="modal-form__label" for="egg-id">Egg ID</label>
       <input class="modal-form__input" type="text" v-model="egg.egg_id" name="egg-id">

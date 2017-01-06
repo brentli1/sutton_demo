@@ -6,3 +6,5 @@ Homestead.json
 .env
 /storage/*
 /bower_components
+/public/css/*
+/public/js/*
